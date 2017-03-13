@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 ########################################################################
 #                                                                      #
 #  HackForGood2017	                                                   #
@@ -91,15 +90,6 @@ def video_window():
     # Capture frame-by-frame
     zret, frame = cap.read()
     captura=frame.copy()
-    #rectangulo
-    if ocupado == True:
-      cv2.rectangle(frame,(x,y),(x+x1,y+y1),(0,0,255),2)
-    else:
-      cv2.rectangle(frame,(x,y),(x+x1,y+y1),(0,255,0),2)
-    #mascara
-    captura=cv2.cvtColor(captura, cv2.COLOR_BGR2GRAY)
-    mask = np.zeros(captura.shape,np.uint8)
-    mask[y:y+y1,x:x+x1] = captura[y:y+y1,x:x+x1]
     # Display the resulting frame
     cv2.imshow('frame',frame)
     if cv2.waitKey(1) & 0xFF == ord(quit_button):
